@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import AdminDashboard from "../pages/admin/AdminDashboard";
-import CreateAdmin from "../pages/admin/createAdmin";
-import CreateFaculty from "../pages/admin/createFaculty";
 import CreateStudent from "../pages/admin/CreateStudent";
 import { NavLink } from "react-router-dom";
+import CreateFaculty from "../pages/admin/CreateFaculty";
+import CreateAdmin from "../pages/admin/CreateAdmin";
 
 type TRoute = {
   path: string;
