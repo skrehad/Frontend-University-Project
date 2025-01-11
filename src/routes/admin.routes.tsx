@@ -23,7 +23,7 @@ export const adminPath = [
   // },
   {
     name: "Dashboard",
-    path: "/admin/dashboard",
+    path: "dashboard",
     element: <AdminDashboard></AdminDashboard>,
   },
 
