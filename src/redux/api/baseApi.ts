@@ -31,6 +31,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 > = async (args, api, extraOptions): Promise<any> => {
   let result = await baseQuery(args, api, extraOptions);
 
+  // status code 401 is returned from backend server where i use 401 for unauthorized
   if (result?.error?.status === 401) {
     //* Send Refresh
     // console.log("Sending refresh token");
