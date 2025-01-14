@@ -13,5 +13,3 @@ export const facultyPath = [
     element: <OfferedCourse></OfferedCourse>,
   },
 ];
-
-export default facultyPath;

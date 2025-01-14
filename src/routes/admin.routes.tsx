@@ -47,5 +47,3 @@ export const adminPath = [
     ],
   },
 ];
-
-export default adminPath;

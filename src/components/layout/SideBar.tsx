@@ -1,10 +1,10 @@
 import { Layout, Menu } from "antd";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
-import adminPath from "../../routes/admin.routes";
-import facultyPath from "../../routes/faculty.routes";
-import studentPath from "../../routes/student.routes";
-import { useAppSelector } from "../../redux/features/hooks";
 import { selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { useAppSelector } from "../../redux/features/hooks";
+import { adminPath } from "../../routes/admin.routes";
+import { facultyPath } from "../../routes/faculty.routes";
+import { studentPath } from "../../routes/student.routes";
 
 const { Sider } = Layout;
 
@@ -56,4 +56,5 @@ const Sidebar = () => {
     </Sider>
   );
 };
+
 export default Sidebar;

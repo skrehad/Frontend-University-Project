@@ -1,4 +1,4 @@
-import StudentDashboard from "../pages/student/studentDashboard";
+import StudentDashboard from "../pages/student/StudentDashboard";
 
 export const studentPath = [
   {
@@ -7,5 +7,3 @@ export const studentPath = [
     element: <StudentDashboard></StudentDashboard>,
   },
 ];
-
-export default studentPath;
