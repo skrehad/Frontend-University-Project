@@ -3,10 +3,9 @@ import App from "../App";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import { routeGenerator } from "../utils/routesGenerator";
-import adminPath from "./admin.routes";
-import facultyPath from "./faculty.routes";
-import studentPath from "./student.routes";
-import ProtectedRoute from "../components/layout/ProtectedRoute";
+import { adminPath } from "./admin.routes";
+import { facultyPath } from "./faculty.routes";
+import { studentPath } from "./student.routes";
 
 const router = createBrowserRouter([
   {
