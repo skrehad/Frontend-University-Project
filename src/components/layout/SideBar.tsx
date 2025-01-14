@@ -17,21 +17,25 @@ const userRole = {
 const Sidebar = () => {
   const user = useAppSelector(selectCurrentUser);
 
+  console.log(user);
+
   let sidebarItems;
 
-  switch (user!.role) {
-    case userRole.ADMIN:
-      sidebarItems = sidebarItemsGenerator(adminPath, userRole.ADMIN);
-      break;
-    case userRole.FACULTY:
-      sidebarItems = sidebarItemsGenerator(facultyPath, userRole.FACULTY);
-      break;
-    case userRole.STUDENT:
-      sidebarItems = sidebarItemsGenerator(studentPath, userRole.STUDENT);
-      break;
+  if (user && "role" in user) {
+    switch (user!.role) {
+      case userRole.ADMIN:
+        sidebarItems = sidebarItemsGenerator(adminPath, userRole.ADMIN);
+        break;
+      case userRole.FACULTY:
+        sidebarItems = sidebarItemsGenerator(facultyPath, userRole.FACULTY);
+        break;
+      case userRole.STUDENT:
+        sidebarItems = sidebarItemsGenerator(studentPath, userRole.STUDENT);
+        break;
 
-    default:
-      break;
+      default:
+        break;
+    }
   }
 
   return (
