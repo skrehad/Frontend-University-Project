@@ -6,6 +6,7 @@ import {
   useForm,
 } from "react-hook-form";
 
+// from config
 type TFormConfig = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   defaultValues?: Record<string, any>;
