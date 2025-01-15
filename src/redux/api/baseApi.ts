@@ -8,6 +8,7 @@ import {
 } from "@reduxjs/toolkit/query/react";
 import { logout, setUser } from "../features/auth/authSlice";
 import { RootState } from "../features/store";
+import { toast } from "sonner";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:5000/api/v1",
@@ -30,6 +31,10 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 > = async (args, api, extraOptions): Promise<any> => {
   let result = await baseQuery(args, api, extraOptions);
+
+  if (result?.error?.status === 404) {
+    toast.error("user not found");
+  }
 
   // status code 401 is returned from backend server where i use 401 for unauthorized
   if (result?.error?.status === 401) {
