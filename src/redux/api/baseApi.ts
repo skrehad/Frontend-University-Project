@@ -33,7 +33,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions);
 
   if (result?.error?.status === 404) {
-    toast.error("user not found");
+    toast.error(result.error.data?.message);
   }
 
   // status code 401 is returned from backend server where i use 401 for unauthorized
