@@ -9,6 +9,7 @@ import { monthOptions } from "../../../constants/global";
 import { academicSemesterSchema } from "../../../schemas/academicManagement.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TResponse } from "../../../types/global";
+import { useAddAcademicSemesterMutation } from "../../../redux/features/admin/academicManagement.api";
 
 const currentYear = new Date().getFullYear();
 const yearOptions = [0, 1, 2, 3, 4].map((number) => ({
