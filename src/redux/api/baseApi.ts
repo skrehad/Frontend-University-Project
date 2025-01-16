@@ -33,7 +33,8 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions);
 
   if (result?.error?.status === 404) {
-    toast.error(result.error.data?.message);
+    const message = (result.error.data as { message: string })?.message;
+    toast.error(message);
   }
 
   // status code 401 is returned from backend server where i use 401 for unauthorized

@@ -34,7 +34,8 @@ const CreateAcademicSemester = () => {
     };
 
     try {
-      const res = (await addAcademicSemester(semesterData)) as TResponse;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const res = (await addAcademicSemester(semesterData)) as TResponse<any>;
       console.log(res);
       if (res.error) {
         toast.error(res.error.data.message, { id: toastId });
