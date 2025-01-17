@@ -72,7 +72,7 @@ const CreateStudent = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       const studentData = {
-        password: "student123",
+        password: "student",
         student: data,
       };
 
