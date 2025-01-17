@@ -16,7 +16,7 @@ const CreateAdmin = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       const adminData = {
-        password: "faculty123",
+        password: "admin",
         faculty: data,
       };
 

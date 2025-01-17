@@ -25,7 +25,7 @@ const CreateFaculty = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       const facultyData = {
-        password: "faculty123",
+        password: "faculty",
         faculty: data,
       };
 
