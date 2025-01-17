@@ -17,7 +17,7 @@ const CreateAdmin = () => {
     try {
       const adminData = {
         password: "admin",
-        faculty: data,
+        admin: data,
       };
 
       const formData = new FormData();
@@ -25,7 +25,7 @@ const CreateAdmin = () => {
       formData.append("file", data.image);
 
       await addAdmin(formData).unwrap();
-      toast.success("Faculty Created successfully!");
+      toast.success("Admin Created successfully!");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       const errors = error?.data?.errorSources || [
