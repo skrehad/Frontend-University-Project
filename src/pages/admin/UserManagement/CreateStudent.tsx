@@ -186,8 +186,18 @@ const CreateStudent = () => {
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <Controller
                 name="image"
-                render={({ field: { onChange, value, ...field } }) => (
-                  <Form.Item label="Picture">
+                rules={{
+                  required: "Image is required", // Validation rule with an error message
+                }}
+                render={({
+                  field: { onChange, value, ...field },
+                  fieldState: { error },
+                }) => (
+                  <Form.Item
+                    label="Picture"
+                    validateStatus={error ? "error" : ""}
+                    help={error?.message}
+                  >
                     <Input
                       type="file"
                       value={value?.fileName}
