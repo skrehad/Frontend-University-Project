@@ -5,23 +5,23 @@ import { Button, Col, Divider, Form, Input, Row } from "antd";
 import PHSelect from "../../../components/form/PHSelect";
 import { bloodGroupOptions, genderOptions } from "../../../constants/global";
 import PHDatePicker from "../../../components/form/PHDatePicker";
-import { useAddStudentMutation } from "../../../redux/features/admin/userManagement.api";
 import { toast } from "sonner";
+import { useAddFacultyMutation } from "../../../redux/features/admin/userManagement.api";
 
 const CreateFaculty = () => {
-  const [addStudent, { data, error }] = useAddStudentMutation();
+  const [addStudent, { data, error }] = useAddFacultyMutation();
 
   console.log({ data, error });
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
-      const studentData = {
-        password: "student123",
-        student: data,
+      const facultyData = {
+        password: "faculty123",
+        faculty: data,
       };
 
       const formData = new FormData();
-      formData.append("data", JSON.stringify(studentData));
+      formData.append("data", JSON.stringify(facultyData));
       formData.append("file", data.image);
 
       await addStudent(formData).unwrap();

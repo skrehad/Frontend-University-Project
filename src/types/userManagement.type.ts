@@ -64,3 +64,21 @@ export type TLocalGuardian = {
   address: string;
   _id: string;
 };
+
+export interface TFaculty {
+  _id: string;
+  id: string;
+  user: TUser;
+  name: TName;
+  gender: string;
+  dateOfBirth: string;
+  email: string;
+  contactNo: string;
+  emergencyContactNo: string;
+  bloodGroup: string;
+  presentAddress: string;
+  permanentAddress: string;
+  profileImg: string;
+  isDeleted: boolean;
+  fullName: string;
+}
