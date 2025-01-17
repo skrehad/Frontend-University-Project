@@ -10,7 +10,7 @@ import { useAddFacultyMutation } from "../../../redux/features/admin/userManagem
 import { useGetAcademicDepartmentsQuery } from "../../../redux/features/admin/academicManagement.api";
 
 const CreateFaculty = () => {
-  const [addStudent, { data, error }] = useAddFacultyMutation();
+  const [addFaculty, { data, error }] = useAddFacultyMutation();
 
   console.log({ data, error });
 
@@ -33,7 +33,7 @@ const CreateFaculty = () => {
       formData.append("data", JSON.stringify(facultyData));
       formData.append("file", data.image);
 
-      await addStudent(formData).unwrap();
+      await addFaculty(formData).unwrap();
       toast.success("Faculty Created successfully!");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
