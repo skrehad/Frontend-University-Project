@@ -78,7 +78,8 @@ export interface TFaculty {
   bloodGroup: string;
   presentAddress: string;
   permanentAddress: string;
-  profileImg: string;
+  academicDepartment: TAcademicDepartment;
+  profileImg?: string;
   isDeleted: boolean;
   fullName: string;
 }

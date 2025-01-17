@@ -7,11 +7,20 @@ import { bloodGroupOptions, genderOptions } from "../../../constants/global";
 import PHDatePicker from "../../../components/form/PHDatePicker";
 import { toast } from "sonner";
 import { useAddFacultyMutation } from "../../../redux/features/admin/userManagement.api";
+import { useGetAcademicDepartmentsQuery } from "../../../redux/features/admin/academicManagement.api";
 
 const CreateFaculty = () => {
   const [addStudent, { data, error }] = useAddFacultyMutation();
 
   console.log({ data, error });
+
+  const { data: dData, isLoading: dIsLoading } =
+    useGetAcademicDepartmentsQuery(undefined);
+
+  const departmentOptions = dData?.data?.map((item) => ({
+    value: item._id,
+    label: item.name,
+  }));
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
@@ -159,6 +168,18 @@ const CreateFaculty = () => {
                 name="permanentAddress"
                 label="Permanent Address"
                 rules={{ required: "Permanent Address is required" }}
+              />
+            </Col>
+          </Row>
+
+          <Divider>Academic Info.</Divider>
+          <Row gutter={8}>
+            <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
+              <PHSelect
+                options={departmentOptions || []}
+                disabled={dIsLoading}
+                name="academicDepartment"
+                label="Academic Department"
               />
             </Col>
           </Row>
