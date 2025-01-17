@@ -81,7 +81,7 @@ const CreateStudent = () => {
       formData.append("file", data.image);
 
       await addStudent(formData).unwrap();
-      toast.success("Student added successfully!");
+      toast.success("Student Created successfully!");
     } catch (error: any) {
       const errors = error?.data?.errorSources || [
         "An unexpected error occurred",
