@@ -97,7 +97,6 @@ export interface TAdmin {
   bloodGroup: string;
   presentAddress: string;
   permanentAddress: string;
-  academicDepartment: TAcademicDepartment;
   profileImg?: string;
   isDeleted: boolean;
   fullName: string;
