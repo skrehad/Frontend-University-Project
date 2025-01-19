@@ -1,11 +1,12 @@
 import { Button, Dropdown, Table, TableColumnsType, Tag } from "antd";
+
+import moment from "moment";
+import { TSemester } from "../../../types";
+import { useState } from "react";
 import {
   useGetAllRegisteredSemestersQuery,
   useUpdateRegisteredSemesterMutation,
 } from "../../../redux/features/admin/courseManagement";
-import moment from "moment";
-import { TSemester } from "../../../types";
-import { useState } from "react";
 export type TTableData = Pick<TSemester, "startDate" | "endDate" | "status">;
 
 const items = [
@@ -24,7 +25,7 @@ const items = [
 ];
 
 const RegisteredSemesters = () => {
-  // const [params, setParams] = useState<TQueryParam[] | undefined>(undefined);
+  //   const [params, setParams] = useState<TQueryParam[] | undefined>(undefined);
   const [semesterId, setSemesterId] = useState("");
   const { data: semesterData, isFetching } =
     useGetAllRegisteredSemestersQuery(undefined);
@@ -43,7 +44,8 @@ const RegisteredSemesters = () => {
     })
   );
 
-  const handleStatusUpdate = (data) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleStatusUpdate = (data: any) => {
     const updateData = {
       id: semesterId,
       data: {
@@ -107,17 +109,17 @@ const RegisteredSemesters = () => {
     },
   ];
 
-  // const onChange: TableProps<TTableData>['onChange'] = (
-  //   _pagination,
-  //   filters,
-  //   _sorter,
-  //   extra
-  // ) => {
-  //   if (extra.action === 'filter') {
-  //     const queryParams: TQueryParam[] = [];
-  //     setParams(queryParams);
-  //   }
-  // };
+  //   const onChange: TableProps<TTableData>['onChange'] = (
+  //     _pagination,
+  //     filters,
+  //     _sorter,
+  //     extra
+  //   ) => {
+  //     if (extra.action === 'filter') {
+  //       const queryParams: TQueryParam[] = [];
+  //       setParams(queryParams);
+  //     }
+  //   };
 
   return (
     <Table
