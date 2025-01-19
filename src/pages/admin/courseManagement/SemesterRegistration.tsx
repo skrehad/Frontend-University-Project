@@ -1,19 +1,20 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import PHForm from "../../../components/form/PHForm";
 import { Button, Col, Flex } from "antd";
 import PHSelect from "../../../components/form/PHSelect";
 import { semesterStatusOptions } from "../../../constants/semester";
-
 import { toast } from "sonner";
 import { useGetAllSemestersQuery } from "../../../redux/features/admin/academicManagement.api";
 import PHDatePicker from "../../../components/form/PHDatePicker";
 import PHInput from "../../../components/form/PHInput";
-import { useAddRegisteredSemesterMutation } from "../../../redux/features/admin/courseManagement";
 import { TResponse } from "../../../types";
+import { useAddRegisteredSemesterMutation } from "../../../redux/features/admin/courseManagement";
 
 const SemesterRegistration = () => {
   const [addSemester] = useAddRegisteredSemesterMutation();
   const { data: academicSemester } = useGetAllSemestersQuery([
+    // for shorting purposes
     { name: "sort", value: "year" },
   ]);
 
@@ -27,6 +28,7 @@ const SemesterRegistration = () => {
 
     const semesterData = {
       ...data,
+      //   for convert number
       minCredit: Number(data.minCredit),
       maxCredit: Number(data.maxCredit),
     };
@@ -34,6 +36,7 @@ const SemesterRegistration = () => {
     console.log(semesterData);
 
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const res = (await addSemester(semesterData)) as TResponse<any>;
       console.log(res);
       if (res.error) {
@@ -41,7 +44,7 @@ const SemesterRegistration = () => {
       } else {
         toast.success("Semester created", { id: toastId });
       }
-    } catch (err) {
+    } catch (error) {
       toast.error("Something went wrong", { id: toastId });
     }
   };
@@ -53,7 +56,7 @@ const SemesterRegistration = () => {
           <PHSelect
             label="Academic Semester"
             name="academicSemester"
-            options={academicSemesterOptions}
+            options={academicSemesterOptions || []}
           />
 
           <PHSelect
