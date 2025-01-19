@@ -10,6 +10,12 @@ import CreateAcademicDepartment from "../pages/admin/academicManagement/CreateAc
 import AcademicDepartment from "../pages/admin/academicManagement/AcademicDepartment";
 import StudentDetails from "../pages/admin/UserManagement/StudentDetails";
 import StudentData from "../pages/admin/UserManagement/StudentData";
+import SemesterRegistration from "../pages/admin/courseManagement/SemesterRegistration";
+import RegisteredSemesters from "../pages/admin/courseManagement/RegisteredSemesters";
+import CreateCourse from "../pages/admin/courseManagement/CreateCourse";
+import Courses from "../pages/admin/courseManagement/Courses";
+import OfferCourse from "../pages/admin/courseManagement/OfferCourse";
+import OfferedCourse from "../pages/faculty/OfferedCourse";
 
 export const adminPath = [
   {
