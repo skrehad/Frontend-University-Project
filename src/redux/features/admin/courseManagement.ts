@@ -24,7 +24,8 @@ const courseManagementApi = baseApi.injectEndpoints({
           params: params,
         };
       },
-      // providesTags: ['semester'],
+      //  for auto reload after send any data or actions but firstly mention in baseApi
+      providesTags: ["semester"],
       transformResponse: (response: TResponseRedux<TSemester[]>) => {
         return {
           data: response.data,
@@ -32,13 +33,15 @@ const courseManagementApi = baseApi.injectEndpoints({
         };
       },
     }),
+    //  for auto reload after send any data or actions but firstly mention in baseApi
     addRegisteredSemester: builder.mutation({
       query: (data) => ({
         url: "/semester-registrations/create-semester-registration",
         method: "POST",
         body: data,
       }),
-      // invalidatesTags: ['semester'],
+      //  for auto reload after send any data or actions but firstly mention in baseApi
+      invalidatesTags: ["semester"],
     }),
     updateRegisteredSemester: builder.mutation({
       query: (args) => ({
@@ -46,7 +49,8 @@ const courseManagementApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: args.data,
       }),
-      // invalidatesTags: ['semester'],
+      //  for auto reload after send any data or actions but firstly mention in baseApi
+      invalidatesTags: ["semester"],
     }),
     getAllCourses: builder.query({
       query: (args) => {
@@ -64,7 +68,8 @@ const courseManagementApi = baseApi.injectEndpoints({
           params: params,
         };
       },
-      // providesTags: ['courses'],
+      //  for auto reload after send any data or actions but firstly mention in baseApi
+      providesTags: ["courses"],
       transformResponse: (response: TResponseRedux<TCourse[]>) => {
         return {
           data: response.data,
@@ -78,7 +83,8 @@ const courseManagementApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      // invalidatesTags: ['courses'],
+      //  for auto reload after send any data or actions but firstly mention in baseApi
+      invalidatesTags: ["courses"],
     }),
     addFaculties: builder.mutation({
       query: (args) => ({
@@ -86,7 +92,8 @@ const courseManagementApi = baseApi.injectEndpoints({
         method: "PUT",
         body: args.data,
       }),
-      // invalidatesTags: ['courses'],
+      //  for auto reload after send any data or actions but firstly mention in baseApi
+      invalidatesTags: ["courses"],
     }),
   }),
 });
