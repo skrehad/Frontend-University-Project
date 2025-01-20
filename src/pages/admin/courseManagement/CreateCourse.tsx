@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import PHForm from "../../../components/form/PHForm";
 import { Button, Col, Flex } from "antd";
@@ -28,7 +29,8 @@ const CreateCourse = () => {
       credits: Number(data.credits),
       isDeleted: false,
       preRequisiteCourses: data.preRequisiteCourses
-        ? data.preRequisiteCourses?.map((item) => ({
+        ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          data.preRequisiteCourses?.map((item: any) => ({
             course: item,
             isDeleted: false,
           }))
@@ -38,6 +40,7 @@ const CreateCourse = () => {
     console.log(courseData);
 
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const res = (await createCourse(courseData)) as TResponse<any>;
       console.log(res);
       if (res.error) {
@@ -45,7 +48,7 @@ const CreateCourse = () => {
       } else {
         toast.success("Semester created", { id: toastId });
       }
-    } catch (err) {
+    } catch (error) {
       toast.error("Something went wrong", { id: toastId });
     }
   };
