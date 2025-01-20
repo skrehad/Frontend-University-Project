@@ -27,7 +27,7 @@ const PHSelectWithWatch = ({
 
   useEffect(() => {
     onValueChange(inputValue);
-  }, [inputValue]);
+  }, [inputValue, onValueChange]);
 
   return (
     <Controller
