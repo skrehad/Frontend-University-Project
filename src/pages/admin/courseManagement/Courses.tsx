@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Modal, Table } from "antd";
 import {
   useAddFacultiesMutation,
@@ -33,7 +34,7 @@ const Courses = () => {
     {
       title: "Action",
       key: "x",
-      render: (item) => {
+      render: (item: any) => {
         return <AddFacultyModal facultyInfo={item} />;
       },
     },
@@ -61,7 +62,7 @@ const Courses = () => {
   );
 };
 
-const AddFacultyModal = ({ facultyInfo }) => {
+const AddFacultyModal = (facultyInfo: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { data: facultiesData } = useGetAllFacultiesQuery(undefined);
   const [addFaculties] = useAddFacultiesMutation();
@@ -71,7 +72,7 @@ const AddFacultyModal = ({ facultyInfo }) => {
     label: item.fullName,
   }));
 
-  const handleSubmit = (data) => {
+  const handleSubmit = (data: any) => {
     const facultyData = {
       courseId: facultyInfo.key,
       data,
