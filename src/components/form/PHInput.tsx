@@ -5,7 +5,8 @@ type TInputProps = {
   type: string;
   name: string;
   label?: string;
-  rules?: { required: string }; // Validation rules
+  rules?: { required: string };
+  disabled?: boolean; // Validation rules
 };
 
 const PHInput = ({ type, name, label, rules }: TInputProps) => {
