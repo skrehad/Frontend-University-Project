@@ -4,6 +4,7 @@ import PHInput from "../../../components/form/PHInput";
 import { useGetAcademicFacultiesQuery } from "../../../redux/features/admin/academicManagement.api";
 import { useState } from "react";
 import { FieldValues, SubmitHandler } from "react-hook-form";
+import PHSelectWithWatch from "../../../components/form/PHSelectWithWatch";
 
 const OfferCourse = () => {
   const [id, setId] = useState("");

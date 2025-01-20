@@ -92,6 +92,7 @@ const courseManagementApi = baseApi.injectEndpoints({
         method: "PUT",
         body: args.data,
       }),
+
       //  for auto reload after send any data or actions but firstly mention in baseApi
       invalidatesTags: ["courses"],
     }),

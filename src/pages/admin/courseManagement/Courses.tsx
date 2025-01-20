@@ -14,11 +14,13 @@ const Courses = () => {
 
   const { data: courses, isFetching } = useGetAllCoursesQuery(undefined);
 
+  // console.log(courses);
   const tableData = courses?.data?.map(({ _id, title, prefix, code }) => ({
     key: _id,
     title,
     code: `${prefix}${code}`,
   }));
+  // console.log(tableData);
 
   const columns = [
     {
@@ -35,6 +37,7 @@ const Courses = () => {
       title: "Action",
       key: "x",
       render: (item: any) => {
+        // console.log(item);
         return <AddFacultyModal facultyInfo={item} />;
       },
     },
@@ -67,6 +70,8 @@ const AddFacultyModal = (facultyInfo: any) => {
   const { data: facultiesData } = useGetAllFacultiesQuery(undefined);
   const [addFaculties] = useAddFacultiesMutation();
 
+  // console.log(facultyInfo.facultyInfo.key);
+
   const facultiesOption = facultiesData?.data?.map((item) => ({
     value: item._id,
     label: item.fullName,
@@ -74,7 +79,7 @@ const AddFacultyModal = (facultyInfo: any) => {
 
   const handleSubmit = (data: any) => {
     const facultyData = {
-      courseId: facultyInfo.key,
+      courseId: facultyInfo.facultyInfo.key,
       data,
     };
 
