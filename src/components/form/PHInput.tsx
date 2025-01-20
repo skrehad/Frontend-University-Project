@@ -6,10 +6,10 @@ type TInputProps = {
   name: string;
   label?: string;
   rules?: { required: string };
-  disabled?: boolean; // Validation rules
+  disabled?: boolean;
 };
 
-const PHInput = ({ type, name, label, rules }: TInputProps) => {
+const PHInput = ({ type, name, label, rules, disabled }: TInputProps) => {
   return (
     <div style={{ marginBottom: "20px" }}>
       <Controller
@@ -21,7 +21,13 @@ const PHInput = ({ type, name, label, rules }: TInputProps) => {
             validateStatus={error ? "error" : ""}
             help={error?.message} // Display error message
           >
-            <Input {...field} type={type} id={name} size="large" />
+            <Input
+              {...field}
+              type={type}
+              id={name}
+              size="large"
+              disabled={disabled}
+            />
           </Form.Item>
         )}
       />

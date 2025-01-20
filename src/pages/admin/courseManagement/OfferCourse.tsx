@@ -13,7 +13,7 @@ const OfferCourse = () => {
 
   const { data: academicFacultyData } = useGetAcademicFacultiesQuery(undefined);
 
-  const academicSemesterOptions = academicFacultyData?.data?.map((item) => ({
+  const academicFacultyDataOptions = academicFacultyData?.data?.map((item) => ({
     value: item._id,
     label: item.name,
   }));
@@ -28,9 +28,9 @@ const OfferCourse = () => {
         <PHForm onSubmit={onSubmit}>
           <PHSelectWithWatch
             onValueChange={setId}
-            label="Academic Semester"
-            name="academicSemester"
-            options={academicSemesterOptions}
+            label="Academic Faculty"
+            name="academicFaculty"
+            options={academicFacultyDataOptions}
           />
           <PHInput disabled={!id} type="text" name="test" label="Test" />
           <Button htmlType="submit">Submit</Button>
