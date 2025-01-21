@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Controller, useFormContext, useWatch } from "react-hook-form";
 
 type TPHSelectProps = {
-  label: string;
+  label?: string;
   name: string;
   options: { value: string; label: string; disabled?: boolean }[] | undefined;
   disabled?: boolean;
