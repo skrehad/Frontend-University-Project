@@ -20,7 +20,6 @@ const Courses = () => {
     title,
     code: `${prefix}${code}`,
   }));
-  // console.log(tableData);
 
   const columns = [
     {
