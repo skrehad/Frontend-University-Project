@@ -4,7 +4,7 @@ import { useGetAllEnrolledCoursesQuery } from "../../redux/features/student/stud
 
 const MySchedule = () => {
   const { data } = useGetAllEnrolledCoursesQuery(undefined);
-  console.log(data);
+  // console.log(data);
 
   return (
     <div>
