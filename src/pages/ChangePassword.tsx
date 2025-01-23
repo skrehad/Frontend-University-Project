@@ -30,7 +30,7 @@ const ChangePassword = () => {
       <PHForm onSubmit={onSubmit}>
         <PHInput type="text" name="oldPassword" label="Old Password" />
         <PHInput type="text" name="newPassword" label="New Password" />
-        <Button htmlType="submit">Login</Button>
+        <Button htmlType="submit">Change Password</Button>
       </PHForm>
     </Row>
   );
