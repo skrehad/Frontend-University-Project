@@ -4,8 +4,8 @@ import { useCurrentToken } from "../../redux/features/auth/authSlice";
 import { useAppSelector } from "../../redux/features/hooks";
 import { adminPath } from "../../routes/admin.routes";
 import { facultyPath } from "../../routes/faculty.routes";
-import { studentPath } from "../../routes/student.routes";
 import { verifyToken } from "../../utils/verifyToken";
+import { studentPaths } from "../../routes/student.routes";
 
 const { Sider } = Layout;
 
@@ -35,7 +35,7 @@ const Sidebar = () => {
         sidebarItems = sidebarItemsGenerator(facultyPath, userRole.FACULTY);
         break;
       case userRole.STUDENT:
-        sidebarItems = sidebarItemsGenerator(studentPath, userRole.STUDENT);
+        sidebarItems = sidebarItemsGenerator(studentPaths, userRole.STUDENT);
         break;
 
       default:
